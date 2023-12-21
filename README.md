@@ -39,13 +39,13 @@ In order to simulate a hpa and general perception of cpu and memory application 
 
 run:
 ```sh
-make load-test:
+make load-test
 
 ```
 
 hpa should be followed using :
 ```sh
-kubectl get hpa -w
+kubectl get hpa -w -n apps-non-prod
 kubectl top po -n apps-non-prod 
 
 ```
