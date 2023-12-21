@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: apps-non-prod
+  name: load-test
+spec:
+  selector:
+    matchLabels:
+      run: load-test
+  template:
+    metadata:
+      labels:
+        run: load-test
+    spec:
+      containers:
+      - name: load-test
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        - "while true; do wget -q -O- http://interview-test-main-app:3000/posts; done"
